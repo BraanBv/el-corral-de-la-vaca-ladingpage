@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* Paleta tomada del propio lugar: cantera de los muros, hierro forjado,
+   brasa del carbón y la talavera azul/mostaza de las mesas del patio. */
+@theme {
+  --color-cantera: #eee7db;
+  --color-cantera-deep: #e1d6c4;
+  --color-hierro: #191512;
+  --color-hierro-soft: #2a241f;
+  --color-humo: #6e645a;
+  --color-brasa: #b4502a;
+  --color-brasa-hover: #9b4220;
+  --color-talavera: #1f3b70;
+  --color-mostaza: #d9a43b;
+
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-shoulders), ui-sans-serif, system-ui, sans-serif;
+  --font-stencil: var(--font-bss),ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-cantera);
+  color: var(--color-hierro);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-mostaza);
+  color: var(--color-hierro);
+}
+
+/* Franja de azulejo: el patrón de las mesas del patio. */
+.talavera-strip {
+  height: 10px;
+  background-image:
+    linear-gradient(45deg, var(--color-talavera) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--color-talavera) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--color-talavera) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--color-talavera) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+  background-color: var(--color-mostaza);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
